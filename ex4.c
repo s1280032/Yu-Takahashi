@@ -2,41 +2,40 @@
 #include<stdlib.h>
 #include <time.h>
 
+int Roll(int);
 
-int Dice(int);
-int main(){
+int main()
+{
   srand((unsigned int)time(NULL));
-  int value=0;
+  int x=0;
   int i;
-  char name[20];
-
+  char name[10];
     
   printf("What is your name?\n");
   printf(">");
   scanf("%s",name);
   printf("Hello, %s!\n",name);
-    
-
- 
+     
   printf("Rolling the dice...\n");
 
-  for(i=0;i<2;i++)
-    value=value+Dice(i+1);
-
+  for(i=0 ; i<2 ; i++)
+    x = x+Roll(i+1);
   
-  printf("Total value:%d\n",value);
+  printf("Total value: %d\n",x);
   
-  if(value>=7) printf("%s won!\n",name);
+  if(x>=7) printf("%s won!\n",name);
   else printf("%s lost!\n",name);
 
-  printf("END\n");
-  
   return 0;
 }
 
-int Dice(int i){
-  int number;
-  number=rand()%6+1;
-  printf("Die %d:%d\n",i,number);
-  return number;
+int Roll(int i)
+{
+  int y;
+  
+  y = rand()%6 + 1;
+
+  printf("Die %d: %d\n",i,y);
+
+  return y;
 }
